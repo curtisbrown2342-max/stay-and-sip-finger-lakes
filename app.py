@@ -65,6 +65,61 @@ st.sidebar.markdown("---")
 if st.sidebar.button("🔄 Refresh Results"):
     st.cache_data.clear()
     st.rerun()
+# ---------- Helpers ----------
+def apply_lake(df: pd.DataFrame) -> pd.DataFrame:
+    if df is None or df.empty:
+        return pd.DataFrame()
+    if lake != "All" and "lake" in df.columns:
+        return df[df["lake"] == lake]
+    return df
+
+def card_grid(df: pd.DataFrame, card_type: str):
+    if df is None or df.empty:
+        st.info("No results. Try broadening filters.")
+        return
+    cols_per_row = 3
+    rows = [df.iloc[i:i+cols_per_row] for i in range(0, len(df), cols_per_row)]
+    for row in rows:
+        cols = st.columns(len(row))
+        for col, (_, item) in zip(cols, row.iterrows()):
+            with col:
+                img = item.get("image")
+                if isinstance(img, str) and img:
+                    st.image(img, use_column_width=True)
+
+                title = item.get("name", card_type)
+                subtitle = item.get("address", item.get("lake", ""))
+                st.subheader(title)
+
+                if card_type == "stay":
+                    meta = f"{item.get('type','')} • {item.get('beds','?')} beds • up to {item.get('guests','?')} guests"
+                    price = int(item.get("price_per_night", 0)) if pd.notnull(item.get("price_per_night", None)) else 0
+                    st.markdown(f"**${price}/night** • {meta}")
+                    tags = ", ".join(item.get("tags", []))
+                    if tags:
+                        st.caption(tags)
+
+                elif card_type == "winery":
+                    bits = []
+                    if item.get("tasting"): bits.append("Tastings")
+                    if item.get("tour"): bits.append("Tours")
+                    st.markdown(", ".join(bits))
+                    st.caption(item.get("notes", ""))
+
+                elif card_type == "attraction":
+                    st.markdown(item.get("category", ""))
+                    st.caption(item.get("notes", ""))
+
+                elif card_type == "venue":
+                    st.markdown(f"{item.get('type','')} • up to {item.get('capacity','?')} guests")
+                    st.caption(item.get("notes",""))
+
+                if subtitle:
+                    st.caption(subtitle)
+
+                link = item.get("link", "")
+                if link:
+                    st.link_button("View details / Book", link, use_container_width=True)
 
 # ---------- Modern tabs ----------
 st.markdown(
