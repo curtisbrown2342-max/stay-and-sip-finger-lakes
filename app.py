@@ -155,18 +155,16 @@ elif view == "Itineraries":
 
 st.markdown("---")
 
-st.markdown("---")
-
 footer_html = """
 <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; padding:10px 6px; color:#bfc3d6; font-size:14px;">
   <span>&copy; {year} Stay &amp; Sip Finger Lakes</span>
-  <span>•</span>
+  <span>&bull;</span>
   <a href="mailto:hello@stayandsipflx.com" style="color:#cfd2e0; text-decoration:none;">Contact</a>
-  <span>•</span>
+  <span>&bull;</span>
   <a href="https://maps.google.com/?q=Keuka+Lake+NY" target="_blank" style="color:#cfd2e0; text-decoration:none;">Map: Keuka Lake</a>
-  <span>•</span>
+  <span>&bull;</span>
   <a href="https://www.instagram.com/" target="_blank" style="color:#cfd2e0; text-decoration:none;">Instagram</a>
-  <span>•</span>
+  <span>&bull;</span>
   <a href="#" style="color:#cfd2e0; text-decoration:none;">Privacy</a>
 </div>
 <div style="text-align:center; color:#9aa0b8; font-size:12px; padding-bottom:12px;">
@@ -175,5 +173,3 @@ footer_html = """
 """.format(year=pd.Timestamp.today().year)
 
 st.markdown(footer_html, unsafe_allow_html=True)
-
-st.caption("Affiliate disclosure: We may earn a commission when you book via links on this site.")
