@@ -62,7 +62,7 @@ lake_opts = ["All", "Keuka", "Seneca", "Cayuga"]
 lake = st.sidebar.selectbox("Lake", lake_opts, index=0)
 budget = st.sidebar.slider("Max price per night (stays)", 100, 400, 300, step=10)
 st.sidebar.markdown("---")
-if st.sidebar.button("🔄 Reload data"):
+if st.sidebar.button("🔄 Refresh Results"):
     st.cache_data.clear()
     st.rerun()
 
