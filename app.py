@@ -66,11 +66,139 @@ if st.sidebar.button("🔄 Refresh Results"):
     st.cache_data.clear()
     st.rerun()
 
-view = st.sidebar.radio(
-    "View",
-    ["Stays", "Wineries & Distilleries", "Attractions", "Wedding Venues", "Map", "Itineraries"],
-    index=0,
+# ---------- Modern tabs ----------
+st.markdown(
+    """
+    <style>
+      /* tighten spacing and give cards a little lift */
+      .element-container:has(.stImage) { margin-bottom: 0.25rem; }
+      .stButton>button { border-radius: 12px; padding: 0.5rem 0.75rem; }
+      .stTabs [data-baseweb="tab-list"] { gap: .5rem; }
+      .stTabs [data-baseweb="tab"] {
+        background: #111827; border-radius: 12px; padding: .6rem 1rem; font-weight: 600;
+        border: 1px solid rgba(255,255,255,.06);
+      }
+      .stTabs [aria-selected="true"] {
+        background: #1f2937; border-color: rgba(155,135,245,.6);
+      }
+    </style>
+    """,
+    unsafe_allow_html=True
 )
+
+stays_tab, wineries_tab, attractions_tab, venues_tab, map_tab, itineraries_tab = st.tabs(
+    ["🍓 Stays", "🍷 Wineries", "🗺️ Attractions", "💍 Wedding Venues", "🧭 Map", "🧳 Itineraries"]
+)
+
+# --- Stays ---
+with stays_tab:
+    st.markdown("<a name='stays'></a>", unsafe_allow_html=True)
+    df = apply_lake(stays_df)
+    if not df.empty and "price_per_night" in df.columns:
+        df = df[df["price_per_night"] <= budget]
+    type_opts = ["All"] + (sorted(df["type"].dropna().unique().tolist()) if "type" in df.columns and not df.empty else [])
+    c1, c2 = st.columns([1,2])
+    with c1:
+        tsel = st.selectbox("Type", type_opts, index=0)
+    with c2:
+        st.caption(f"Filtering: Lake = **{lake}**, Max ${budget}/night")
+    if tsel != "All" and not df.empty:
+        df = df[df["type"] == tsel]
+    card_grid(df, "stay")
+
+# --- Wineries ---
+with wineries_tab:
+    st.markdown("<a name='wineries'></a>", unsafe_allow_html=True)
+    df = apply_lake(wineries_df)
+    c1, c2 = st.columns([1,2])
+    with c1:
+        only_tastings = st.checkbox("Show places with tastings", value=False)
+    with c2:
+        st.caption(f"Filtering: Lake = **{lake}**")
+    if only_tastings and not df.empty:
+        df = df[df.get("tasting", False) == True]
+    card_grid(df, "winery")
+
+# --- Attractions ---
+with attractions_tab:
+    st.markdown("<a name='attractions'></a>", unsafe_allow_html=True)
+    df = apply_lake(attr_df)
+    cat_opts = ["All"] + (sorted(df["category"].dropna().unique().tolist()) if "category" in df.columns and not df.empty else [])
+    c1, c2 = st.columns([1,2])
+    with c1:
+        csel = st.selectbox("Category", cat_opts, index=0)
+    with c2:
+        st.caption(f"Filtering: Lake = **{lake}**")
+    if csel != "All" and not df.empty:
+        df = df[df["category"] == csel]
+    card_grid(df, "attraction")
+
+# --- Wedding Venues ---
+with venues_tab:
+    st.markdown("<a name='venues'></a>", unsafe_allow_html=True)
+    df = apply_lake(venues_df)
+    c1, c2 = st.columns([1,2])
+    with c1:
+        min_cap = st.slider("Min capacity", 50, 300, 100, step=25)
+    with c2:
+        st.caption(f"Filtering: Lake = **{lake}**, Capacity ≥ **{min_cap}**")
+    if not df.empty and "capacity" in df.columns:
+        df = df[df["capacity"] >= min_cap]
+    card_grid(df, "venue")
+
+# --- Map ---
+with map_tab:
+    st.subheader("All Listings Map")
+    combined = []
+    for dataset, ctype in [
+        (stays_df, "Stay"),
+        (wineries_df, "Winery"),
+        (attr_df, "Attraction"),
+        (venues_df, "Wedding Venue"),
+    ]:
+        d = apply_lake(dataset).copy()
+        if not d.empty and {"lat", "lng"}.issubset(d.columns):
+            d["ctype"] = ctype
+            combined.append(d[["name", "lat", "lng", "ctype", "lake"]])
+    if combined:
+        mdf = pd.concat(combined, ignore_index=True)
+        st.pydeck_chart(
+            pdk.Deck(
+                map_style="mapbox://styles/mapbox/dark-v11",
+                initial_view_state=pdk.ViewState(latitude=42.6, longitude=-77.1, zoom=8, pitch=0),
+                layers=[
+                    pdk.Layer(
+                        "ScatterplotLayer",
+                        data=mdf.rename(columns={"lng": "lon"}),
+                        get_position="[lon, lat]",
+                        get_radius=800,
+                        pickable=True,
+                    )
+                ],
+                tooltip={"text": "{name}\n{ctype} • {lake} Lake"},
+            )
+        )
+    else:
+        st.info("No locations to show.")
+
+# --- Itineraries ---
+with itineraries_tab:
+    st.subheader("Trip Ideas")
+    df = apply_lake(itin_df)
+    if df.empty:
+        st.info("Add itineraries in data/itineraries.json")
+    else:
+        for _, row in df.iterrows():
+            with st.expander(f"{row['title']} • {row['days']} days"):
+                st.write(row["summary"])
+                st.caption(f"Focus: {row['lake']} Lake")
+                st.write("**Stays**")
+                st.table(stays_df[stays_df["id"].isin(row["stays"])][["name","address","price_per_night"]])
+                st.write("**Wineries**")
+                st.table(wineries_df[wineries_df["id"].isin(row["wineries"])][["name","address"]])
+                st.write("**Attractions**")
+                st.table(attr_df[attr_df["id"].isin(row.get("attractions", []))][["name","address"]])
+
 
 # ---------- Load datasets ----------
 stays_df     = safe_load("data/stays.json")
