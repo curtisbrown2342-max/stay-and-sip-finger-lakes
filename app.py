@@ -155,7 +155,7 @@ elif view == "Itineraries":
 
 st.markdown("---")
 
-footer_html = """
+footer_html = '''
 <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; padding:10px 6px; color:#bfc3d6; font-size:14px;">
   <span>&copy; {year} Stay &amp; Sip Finger Lakes</span>
   <span>&bull;</span>
@@ -170,6 +170,6 @@ footer_html = """
 <div style="text-align:center; color:#9aa0b8; font-size:12px; padding-bottom:12px;">
   Affiliate disclosure: We may earn a commission when you book via links on this site. Thanks for supporting local guides.
 </div>
-""".format(year=pd.Timestamp.today().year)
+'''.format(year=pd.Timestamp.today().year)
 
 st.markdown(footer_html, unsafe_allow_html=True)
