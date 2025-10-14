@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "Point of the Bluff Vineyards",
+    "lake": "Keuka",
+    "type": "Vineyard Venue",
+    "capacity": 200,
+    "address": "Hammondsport, NY",
+    "lat": 42.4425,
+    "lng": -77.1971,
+    "image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2",
+    "link": "https://pointofthebluffvineyards.com/",
+    "notes": "Clifftop views, event pavilion, vineyard setting."
+  },
+  {
+    "id": 2,
+    "name": "Belhurst Castle",
+    "lake": "Seneca",
+    "type": "Historic Venue",
+    "capacity": 250,
+    "address": "Geneva, NY",
+    "lat": 42.8531,
+    "lng": -76.9857,
+    "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba",
+    "link": "https://www.belhurst.com/",
+    "notes": "Castle wedding venue with lakeside lawns."
+  }
+]

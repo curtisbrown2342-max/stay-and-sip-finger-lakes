@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Konstantin Frank Winery",
+    "lake": "Keuka",
+    "type": "Winery",
+    "address": "Hammondsport, NY",
+    "lat": 42.4156,
+    "lng": -77.1765,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "link": "https://www.getyourguide.com/",
+    "tasting": true,
+    "tour": true,
+    "notes": "Historic winery famous for Riesling and sparkling wines."
+  },
+  {
+    "id": 2,
+    "name": "Keuka Spring Vineyards",
+    "lake": "Keuka",
+    "type": "Winery",
+    "address": "Penn Yan, NY",
+    "lat": 42.6243,
+    "lng": -77.0731,
+    "image": "https://images.unsplash.com/photo-1532635223-4787d5b2bdef",
+    "link": "https://www.getyourguide.com/",
+    "tasting": true,
+    "tour": false,
+    "notes": "Scenic tastings with lake views."
+  },
+  {
+    "id": 3,
+    "name": "Fox Run Vineyards",
+    "lake": "Seneca",
+    "type": "Winery",
+    "address": "Penn Yan, NY",
+    "lat": 42.7353,
+    "lng": -77.0587,
+    "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c76f0",
+    "link": "https://www.getyourguide.com/",
+    "tasting": true,
+    "tour": true,
+    "notes": "Known for food & wine pairings."
+  }
+]

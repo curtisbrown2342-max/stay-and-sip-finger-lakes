@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "name": "Keuka Lakeview Cabin",
+    "lake": "Keuka",
+    "type": "Cabin",
+    "price_per_night": 220,
+    "beds": 2,
+    "guests": 4,
+    "amenities": [
+      "Lakefront",
+      "Firepit",
+      "Wi\u2011Fi",
+      "Kitchen"
+    ],
+    "address": "Hammondsport, NY",
+    "lat": 42.4017,
+    "lng": -77.2236,
+    "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+    "link": "https://www.booking.com/",
+    "tags": [
+      "Romantic",
+      "Cozy",
+      "Pet-friendly"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Seneca Shores Boutique Inn",
+    "lake": "Seneca",
+    "type": "B&B",
+    "price_per_night": 185,
+    "beds": 1,
+    "guests": 2,
+    "amenities": [
+      "Breakfast",
+      "Wi\u2011Fi",
+      "Parking"
+    ],
+    "address": "Geneva, NY",
+    "lat": 42.867,
+    "lng": -76.9856,
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+    "link": "https://www.booking.com/",
+    "tags": [
+      "Romantic",
+      "Walkable"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Cayuga Modern Lakeside Hotel",
+    "lake": "Cayuga",
+    "type": "Hotel",
+    "price_per_night": 160,
+    "beds": 2,
+    "guests": 4,
+    "amenities": [
+      "Lakeview",
+      "Gym",
+      "Wi\u2011Fi"
+    ],
+    "address": "Ithaca, NY",
+    "lat": 42.443,
+    "lng": -76.5019,
+    "image": "https://images.unsplash.com/photo-1496412705862-e0088f16f791",
+    "link": "https://www.booking.com/",
+    "tags": [
+      "Family",
+      "Business"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Keuka Hills Cottage",
+    "lake": "Keuka",
+    "type": "Cottage",
+    "price_per_night": 245,
+    "beds": 2,
+    "guests": 5,
+    "amenities": [
+      "Deck",
+      "Grill",
+      "Wi\u2011Fi",
+      "Kitchen"
+    ],
+    "address": "Penn Yan, NY",
+    "lat": 42.6609,
+    "lng": -77.0536,
+    "image": "https://images.unsplash.com/photo-1475855581690-80accde3ae2b",
+    "link": "https://www.airbnb.com/",
+    "tags": [
+      "Families",
+      "Quiet"
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "title": "Romantic Keuka Weekend: Wine & Waterfalls",
+    "days": 3,
+    "lake": "Keuka",
+    "summary": "Cozy cabin, tastings at Dr. Frank, and a day trip to Watkins Glen.",
+    "stays": [
+      1
+    ],
+    "wineries": [
+      1,
+      2
+    ],
+    "attractions": [
+      2
+    ]
+  }
+]

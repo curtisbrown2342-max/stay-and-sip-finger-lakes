@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Keuka Lake State Park",
+    "category": "Outdoors",
+    "lake": "Keuka",
+    "address": "Penn Yan, NY",
+    "lat": 42.6159,
+    "lng": -77.1315,
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+    "link": "https://parks.ny.gov/",
+    "notes": "Beach, hiking, picnic areas."
+  },
+  {
+    "id": 2,
+    "name": "Watkins Glen State Park",
+    "category": "Outdoors",
+    "lake": "Seneca",
+    "address": "Watkins Glen, NY",
+    "lat": 42.3754,
+    "lng": -76.8733,
+    "image": "https://images.unsplash.com/photo-1470770903676-69b98201ea1c",
+    "link": "https://parks.ny.gov/",
+    "notes": "Famous gorge trail and waterfalls."
+  },
+  {
+    "id": 3,
+    "name": "Corning Museum of Glass",
+    "category": "Museum",
+    "lake": "Keuka",
+    "address": "Corning, NY",
+    "lat": 42.1429,
+    "lng": -77.0547,
+    "image": "https://images.unsplash.com/photo-1523575708161-38fcd4b4bbf2",
+    "link": "https://home.cmog.org/",
+    "notes": "Live glassblowing demos and exhibits."
+  }
+]
