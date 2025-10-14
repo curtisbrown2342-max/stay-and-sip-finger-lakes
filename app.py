@@ -159,7 +159,7 @@ st.markdown("---")
 
 footer_html = """
 <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; padding:10px 6px; color:#bfc3d6; font-size:14px;">
-  <span>© {year} Stay &amp; Sip Finger Lakes</span>
+  <span>&copy; {year} Stay &amp; Sip Finger Lakes</span>
   <span>•</span>
   <a href="mailto:hello@stayandsipflx.com" style="color:#cfd2e0; text-decoration:none;">Contact</a>
   <span>•</span>
