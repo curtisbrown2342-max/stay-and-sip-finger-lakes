@@ -24,5 +24,44 @@
     "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba",
     "link": "https://www.belhurst.com/",
     "notes": "Castle wedding venue with lakeside lawns."
+  },
+  {
+    "id": 3,
+    "name": "Crispin Hill",
+    "lake": "Keuka",
+    "type": "Barn & Lakeview Venue",
+    "capacity": 200,
+    "address": "Penn Yan, NY",
+    "lat": 42.6800,
+    "lng": -77.0300,
+    "image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2",
+    "link": "https://weddings-or-direct-link.example/crispin-hill",
+    "notes": "Rustic-elegant with panoramic Keuka views."
+  },
+  {
+    "id": 4,
+    "name": "Geneva On The Lake",
+    "lake": "Seneca",
+    "type": "Historic Lakeside Venue",
+    "capacity": 250,
+    "address": "Geneva, NY",
+    "lat": 42.8600,
+    "lng": -76.9800,
+    "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba",
+    "link": "https://weddings-or-direct-link.example/geneva-on-the-lake",
+    "notes": "Manicured gardens, classic ballroom, lodging on site."
+  },
+  {
+    "id": 5,
+    "name": "The Lake House on Canandaigua",
+    "lake": "Canandaigua",
+    "type": "Resort Venue",
+    "capacity": 300,
+    "address": "Canandaigua, NY",
+    "lat": 42.8800,
+    "lng": -77.2800,
+    "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+    "link": "https://weddings-or-direct-link.example/lake-house-canandaigua",
+    "notes": "Modern lakeside spaces; great for destination weddings."
   }
 ]
