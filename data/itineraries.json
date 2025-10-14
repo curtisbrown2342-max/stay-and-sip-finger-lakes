@@ -4,16 +4,29 @@
     "title": "Romantic Keuka Weekend: Wine & Waterfalls",
     "days": 3,
     "lake": "Keuka",
-    "summary": "Cozy cabin, tastings at Dr. Frank, and a day trip to Watkins Glen.",
-    "stays": [
-      1
-    ],
-    "wineries": [
-      1,
-      2
-    ],
-    "attractions": [
-      2
-    ]
+    "summary": "Cozy lakeview stay, tastings at Dr. Frank and Keuka Spring, and a day trip to Watkins Glen.",
+    "stays": [1],
+    "wineries": [1, 2],
+    "attractions": [2]
+  },
+  {
+    "id": 2,
+    "title": "Wine & Waterfalls Weekend (Keuka + Watkins Glen)",
+    "days": 3,
+    "lake": "Keuka",
+    "summary": "Stay lakeside near Hammondsport, tour Heron Hill and Dr. Frank, then hike Watkins Glen’s gorge.",
+    "stays": [5, 6],
+    "wineries": [1, 5],
+    "attractions": [2]
+  },
+  {
+    "id": 3,
+    "title": "Finger Lakes Family Adventure",
+    "days": 4,
+    "lake": "Seneca",
+    "summary": "Base in Geneva/Watkins Glen, play at Seneca Lake State Park, explore Corning Museum of Glass, and enjoy a relaxed tasting.",
+    "stays": [8],
+    "wineries": [9],
+    "attractions": [6, 7]
   }
 ]
