@@ -93,41 +93,64 @@
       "Families",
       "Quiet"
     ]
-  }
-]
-{
-  "id": 3,
-  "name": "Crispin Hill",
-  "lake": "Keuka",
-  "type": "Barn & Lakeview Venue",
-  "capacity": 200,
-  "address": "Penn Yan, NY",
-  "lat": 42.6800, "lng": -77.0300,
-  "image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2",
-  "link": "https://weddings-or-direct-link.example/crispin-hill",
-  "notes": "Rustic-elegant with panoramic Keuka views."
-},
-{
-  "id": 4,
-  "name": "Geneva On The Lake",
-  "lake": "Seneca",
-  "type": "Historic Lakeside Venue",
-  "capacity": 250,
-  "address": "Geneva, NY",
-  "lat": 42.8600, "lng": -76.9800,
-  "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba",
-  "link": "https://weddings-or-direct-link.example/geneva-on-the-lake",
-  "notes": "Manicured gardens, classic ballroom, lodging on site."
-},
+  },
 {
   "id": 5,
-  "name": "The Lake House on Canandaigua",
-  "lake": "Canandaigua",
-  "type": "Resort Venue",
-  "capacity": 300,
-  "address": "Canandaigua, NY",
-  "lat": 42.8800, "lng": -77.2800,
+  "name": "Keuka Lakeside Inn",
+  "lake": "Keuka",
+  "type": "Inn",
+  "price_per_night": 195,
+  "beds": 1,
+  "guests": 2,
+  "amenities": ["Lakefront","Wi-Fi","Parking"],
+  "address": "Hammondsport, NY",
+  "lat": 42.4090, "lng": -77.2250,
+  "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba",
+  "link": "https://booking-or-direct-link.example/keuka-lakeside-inn",
+  "tags": ["Romantic","Lakeview"]
+},
+{
+  "id": 6,
+  "name": "The Hammondsport Hotel (BW Signature)",
+  "lake": "Keuka",
+  "type": "Hotel",
+  "price_per_night": 165,
+  "beds": 2,
+  "guests": 4,
+  "amenities": ["Breakfast","Pool","Wi-Fi","Parking"],
+  "address": "Hammondsport, NY",
+  "lat": 42.4170, "lng": -77.2150,
+  "image": "https://images.unsplash.com/photo-1496412705862-e0088f16f791",
+  "link": "https://booking-or-direct-link.example/hammondsport-hotel",
+  "tags": ["Family","Business"]
+},
+{
+  "id": 7,
+  "name": "Park Inn",
+  "lake": "Keuka",
+  "type": "Boutique Inn",
+  "price_per_night": 210,
+  "beds": 1,
+  "guests": 2,
+  "amenities": ["On-site Restaurant","Wi-Fi"],
+  "address": "Hammondsport, NY",
+  "lat": 42.4080, "lng": -77.2230,
+  "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+  "link": "https://booking-or-direct-link.example/park-inn-hammondsport",
+  "tags": ["Romantic","Walkable"]
+},
+{
+  "id": 8,
+  "name": "Watkins Glen Harbor Hotel",
+  "lake": "Seneca",
+  "type": "Hotel",
+  "price_per_night": 230,
+  "beds": 2,
+  "guests": 4,
+  "amenities": ["Lakefront","Restaurant","Wi-Fi","Parking"],
+  "address": "Watkins Glen, NY",
+  "lat": 42.3860, "lng": -76.8710,
   "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
-  "link": "https://weddings-or-direct-link.example/lake-house-canandaigua",
-  "notes": "Modern lakeside spaces; great for destination weddings."
+  "link": "https://booking-or-direct-link.example/watkins-glen-harbor-hotel",
+  "tags": ["Lakeview","Upscale"]
 }
