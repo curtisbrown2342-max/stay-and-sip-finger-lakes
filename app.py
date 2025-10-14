@@ -18,7 +18,26 @@ st.sidebar.header("Search")
 lake_opts = ["All", "Keuka", "Seneca", "Cayuga"]
 lake = st.sidebar.selectbox("Lake", lake_opts, index=0)
 budget = st.sidebar.slider("Max price per night (stays)", 100, 400, 300, step=10)
-st.sidebar.markdown("---")
+st.sidebar.markdown("---"
+                    <div style="text-align:center; padding: 28px 12px 8px;">
+        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623"
+             alt="Wine glass" width="96"
+             style="border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.35); margin-bottom:14px;">
+        <h1 style="margin:0; color:#f5f5fb; letter-spacing:0.3px;">Stay &amp; Sip Finger Lakes</h1>
+        <p style="margin:8px 0 0; color:#cfd2e0; font-size:17px;">
+            Explore. Taste. Relax. Hand-picked stays, wineries, and wedding venues around Keuka, Seneca &amp; Cayuga.
+        </p>
+    </div>
+""", unsafe_allow_html=True)
+
+# optional quick-links row
+c1, c2, c3, c4 = st.columns(4)
+c1.link_button("🍓 Stays", "#stays", use_container_width=True)
+c2.link_button("🍷 Wineries", "#wineries", use_container_width=True)
+c3.link_button("🗺️ Attractions", "#attractions", use_container_width=True)
+c4.link_button("💍 Venues", "#venues", use_container_width=True)
+
+st.markdown("<div style='margin-bottom:8px'></div>", unsafe_allow_html=True)
 view = st.sidebar.radio("View", ["Stays", "Wineries & Distilleries", "Attractions", "Wedding Venues", "Map", "Itineraries"], index=0)
 
 # Load datasets
@@ -72,35 +91,26 @@ def card_grid(df, card_type):
                 if link:
                     st.link_button("View details / Book", link, use_container_width=True)
 
+# Stays
 if view == "Stays":
-    df = apply_lake(stays_df)
-    df = df[df["price_per_night"] <= budget]
-    type_opts = ["All"] + sorted(df["type"].dropna().unique().tolist())
-    tsel = st.selectbox("Type", type_opts, index=0)
-    if tsel != "All":
-        df = df[df["type"] == tsel]
-    card_grid(df, "stay")
+    st.markdown("<a name='stays'></a>", unsafe_allow_html=True)
+    # ...rest of your code...
 
+# Wineries
 elif view == "Wineries & Distilleries":
-    df = apply_lake(wineries_df)
-    only_tastings = st.checkbox("Show places with tastings", value=False)
-    if only_tastings:
-        df = df[df["tasting"] == True]
-    card_grid(df, "winery")
+    st.markdown("<a name='wineries'></a>", unsafe_allow_html=True)
+    # ...rest of your code...
 
+# Attractions
 elif view == "Attractions":
-    df = apply_lake(attr_df)
-    cat_opts = ["All"] + sorted(df["category"].dropna().unique().tolist())
-    csel = st.selectbox("Category", cat_opts, index=0)
-    if csel != "All":
-        df = df[df["category"] == csel]
-    card_grid(df, "attraction")
+    st.markdown("<a name='attractions'></a>", unsafe_allow_html=True)
+    # ...rest of your code...
 
+# Wedding Venues
 elif view == "Wedding Venues":
-    df = apply_lake(venues_df)
-    min_cap = st.slider("Min capacity", 50, 300, 100, step=25)
-    df = df[df["capacity"] >= min_cap]
-    card_grid(df, "venue")
+    st.markdown("<a name='venues'></a>", unsafe_allow_html=True)
+    # ...rest of your code...
+
 
 elif view == "Map":
     st.subheader("All Listings Map")
@@ -144,4 +154,26 @@ elif view == "Itineraries":
                 st.table(attr_df[attr_df["id"].isin(row.get("attractions", []))][["name","address"]])
 
 st.markdown("---")
+
+st.markdown("---")
+
+footer_html = """
+<div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; padding:10px 6px; color:#bfc3d6; font-size:14px;">
+  <span>© {year} Stay &amp; Sip Finger Lakes</span>
+  <span>•</span>
+  <a href="mailto:hello@stayandsipflx.com" style="color:#cfd2e0; text-decoration:none;">Contact</a>
+  <span>•</span>
+  <a href="https://maps.google.com/?q=Keuka+Lake+NY" target="_blank" style="color:#cfd2e0; text-decoration:none;">Map: Keuka Lake</a>
+  <span>•</span>
+  <a href="https://www.instagram.com/" target="_blank" style="color:#cfd2e0; text-decoration:none;">Instagram</a>
+  <span>•</span>
+  <a href="#" style="color:#cfd2e0; text-decoration:none;">Privacy</a>
+</div>
+<div style="text-align:center; color:#9aa0b8; font-size:12px; padding-bottom:12px;">
+  Affiliate disclosure: We may earn a commission when you book via links on this site. Thanks for supporting local guides.
+</div>
+""".format(year=pd.Timestamp.today().year)
+
+st.markdown(footer_html, unsafe_allow_html=True)
+
 st.caption("Affiliate disclosure: We may earn a commission when you book via links on this site.")
